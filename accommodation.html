@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accommodation — Bami & Joel · August 2026</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --sage: #9CAF88;
+            --sage-light: #b8c9a8;
+            --sage-dark: #7a9066;
+            --cream: #F8F6F1;
+            --cream-dark: #ede9e1;
+            --gold: #C9A227;
+            --gold-light: #e2bc4e;
+            --text: #3a3530;
+            --text-light: #6b5e52;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* ── HERO ── */
+        .accom-hero {
+            background: linear-gradient(135deg, #5a7048 0%, #3d5432 40%, #2a3d24 100%);
+            position: relative;
+            padding: 100px 24px 72px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .accom-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(ellipse 60% 80% at 20% 60%, rgba(156, 175, 136, 0.25) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 60% at 80% 30%, rgba(201, 162, 39, 0.12) 0%, transparent 60%);
+        }
+
+        .accom-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.35) 100%);
+        }
+
+        .accom-hero-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-eyebrow {
+            font-size: 0.68rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 16px;
+        }
+
+        .accom-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.4rem, 6vw, 4.2rem);
+            font-weight: 400;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 12px;
+        }
+
+        .accom-hero h1 em {
+            color: var(--gold-light);
+        }
+
+        .accom-hero p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.75);
+            margin-bottom: 28px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.72rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.55);
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 10px 24px;
+            border-radius: 50px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--white);
+            border-color: var(--gold-light);
+        }
+
+        /* ── LAYOUT ── */
+        .page-body {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+
+        /* ── INTRO CARD ── */
+        .intro-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px 36px;
+            margin-top: -36px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .intro-card p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--text-light);
+            line-height: 1.9;
+        }
+
+        /* ── SECTIONS ── */
+        .info-section {
+            margin-top: 48px;
+        }
+
+        .section-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--sage-dark);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--cream-dark);
+        }
+
+        /* ── DATE CARDS ── */
+        .date-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .date-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 24px 20px;
+            border: 1px solid var(--cream-dark);
+            text-align: center;
+        }
+
+        .date-card .event-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--sage-dark);
+            margin-bottom: 8px;
+        }
+
+        .date-card .event-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .date-card .event-date {
+            font-size: 0.82rem;
+            color: var(--gold);
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .stay-banner {
+            background: linear-gradient(135deg, var(--sage-light), var(--sage));
+            border-radius: 14px;
+            padding: 20px 24px;
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .stay-banner .stay-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .stay-banner p {
+            font-size: 0.88rem;
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        .stay-banner strong {
+            display: block;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+        }
+
+        /* ── VENUE CARD ── */
+        .venue-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 28px 28px;
+            border: 1px solid var(--cream-dark);
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .venue-icon-wrap {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #5a7048, #3d5432);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .venue-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .venue-card .venue-address {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            letter-spacing: 0.03em;
+        }
+
+        .venue-card .venue-note {
+            margin-top: 10px;
+            font-size: 0.82rem;
+            color: var(--sage-dark);
+            font-style: italic;
+        }
+
+        /* ── ROOMS TABLE ── */
+        .rooms-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .room-row {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 18px 22px;
+            border: 1px solid var(--cream-dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .room-row:hover {
+            border-color: var(--gold);
+            box-shadow: 0 4px 16px rgba(201,162,39,0.08);
+        }
+
+        .room-type {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: var(--text);
+        }
+
+        .room-price {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: var(--gold);
+            background: rgba(201,162,39,0.08);
+            padding: 6px 14px;
+            border-radius: 50px;
+        }
+
+        .sharing-note {
+            margin-top: 12px;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-style: italic;
+            text-align: center;
+        }
+
+        /* ── PHOTO PLACEHOLDERS ── */
+        .photo-placeholder {
+            width: 100%;
+            border-radius: 14px;
+            border: 2px dashed var(--cream-dark);
+            background: var(--white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .photo-placeholder svg {
+            opacity: 0.35;
+        }
+
+        .photo-placeholder .ph-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--sage-dark);
+            font-weight: 700;
+        }
+
+        .photo-placeholder .ph-filename {
+            font-family: 'Lato', monospace;
+            font-size: 0.72rem;
+            color: var(--text-light);
+            background: var(--cream);
+            padding: 4px 10px;
+            border-radius: 6px;
+            letter-spacing: 0.03em;
+        }
+
+        .photo-placeholder.wide {
+            height: 240px;
+            margin-top: 16px;
+        }
+
+        /* ── PROCESS STEPS ── */
+        .steps-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .step {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            background: var(--white);
+            border-radius: 14px;
+            padding: 18px 20px;
+            border: 1px solid var(--cream-dark);
+        }
+
+        .step-num {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #5a7048, #3d5432);
+            color: var(--white);
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .step p {
+            font-size: 0.88rem;
+            color: var(--text);
+            line-height: 1.6;
+            padding-top: 6px;
+        }
+
+        .step a {
+            color: var(--sage-dark);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            word-break: break-all;
+        }
+
+        /* ── PAYMENT CARD ── */
+        .payment-card {
+            background: linear-gradient(135deg, #3d5432 0%, #5a7048 100%);
+            border-radius: 20px;
+            padding: 32px 28px;
+            color: var(--white);
+        }
+
+        .payment-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: var(--gold-light);
+            margin-bottom: 20px;
+        }
+
+        .payment-details {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .payment-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .payment-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .payment-row .p-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .payment-row .p-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: var(--white);
+        }
+
+        .payment-row .p-value.account-num {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: var(--gold-light);
+        }
+
+        /* ── WARNING CARD ── */
+        .warning-card {
+            background: rgba(201,162,39,0.07);
+            border: 1.5px solid rgba(201,162,39,0.3);
+            border-radius: 16px;
+            padding: 24px 24px;
+        }
+
+        .warning-card h3 {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .warning-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .warning-card ul li {
+            font-size: 0.87rem;
+            color: var(--text);
+            line-height: 1.6;
+            padding-left: 18px;
+            position: relative;
+        }
+
+        .warning-card ul li::before {
+            content: '·';
+            position: absolute;
+            left: 4px;
+            color: var(--gold);
+            font-size: 1.2rem;
+            line-height: 1.2;
+        }
+
+        /* ── NOTE FROM COUPLE ── */
+        .couple-note {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 36px 32px;
+            border: 1px solid var(--cream-dark);
+            text-align: center;
+        }
+
+        .couple-note .divider-leaf {
+            font-size: 1.2rem;
+            margin: 0 auto 16px;
+            opacity: 0.6;
+        }
+
+        .couple-note blockquote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--text-light);
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        .couple-note .signed {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: var(--text);
+        }
+
+        .couple-note .signed em {
+            color: var(--gold);
+        }
+
+        /* ── DEADLINE BANNER ── */
+        .deadline-banner {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--white);
+            border-radius: 14px;
+            padding: 20px 22px;
+            border: 1px solid var(--cream-dark);
+        }
+
+        .deadline-banner .deadline-icon {
+            font-size: 1.6rem;
+            flex-shrink: 0;
+        }
+
+        .deadline-banner p {
+            font-size: 0.88rem;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .deadline-banner strong {
+            color: var(--gold);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--text);
+            color: rgba(255,255,255,0.4);
+            text-align: center;
+            padding: 32px 24px;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+        }
+
+        footer span { color: var(--gold); }
+
+        footer a {
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        footer a:hover {
+            color: var(--gold-light);
+            border-color: var(--gold-light);
+        }
+
+        /* ── EMBEDDED FORM ── */
+        .form-section {
+            background: var(--white);
+            border-radius: 20px;
+            border: 1px solid var(--cream-dark);
+            overflow: hidden;
+        }
+
+        .form-section-header {
+            background: linear-gradient(135deg, #3d5432 0%, #5a7048 100%);
+            padding: 24px 28px;
+        }
+
+        .form-section-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+
+        .form-section-header p {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .form-embed {
+            width: 100%;
+            border: none;
+            display: block;
+            min-height: 900px;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 580px) {
+            .intro-card { padding: 28px 22px; }
+            .date-grid { grid-template-columns: 1fr; }
+            .venue-card { flex-direction: column; }
+            .payment-row { flex-direction: column; align-items: flex-start; gap: 4px; }
+            .couple-note { padding: 28px 20px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HERO -->
+    <header class="accom-hero">
+        <div class="accom-hero-inner">
+            <p class="hero-eyebrow">#TheEsieboJourney</p>
+            <h1>Accommodation<br><em>Details</em></h1>
+            <p>Everything you need for a seamless wedding weekend</p>
+            <a href="index.html" class="back-link">← Back to Wedding Site</a>
+        </div>
+    </header>
+
+    <main class="page-body">
+
+        <!-- INTRO -->
+        <div class="intro-card">
+            <p>Hi everyone 🤍<br>
+            As we prepare to celebrate with you in Ibadan this August, we've arranged for guests to stay at our wedding venue so we can all be together and enjoy the full experience seamlessly. ✨</p>
+        </div>
+
+        <!-- WEDDING DATES -->
+        <div class="info-section">
+            <p class="section-label">Wedding Dates</p>
+            <div class="date-grid">
+                <div class="date-card">
+                    <p class="event-label">Day One</p>
+                    <p class="event-name">Traditional Wedding</p>
+                    <p class="event-date">August 21st, 2026</p>
+                </div>
+                <div class="date-card">
+                    <p class="event-label">Day Two</p>
+                    <p class="event-name">White Wedding</p>
+                    <p class="event-date">August 22nd, 2026</p>
+                </div>
+            </div>
+            <div class="stay-banner">
+                <span class="stay-icon">📅</span>
+                <p>
+                    <strong>Recommended Stay: August 20th – August 23rd</strong>
+                    Feel free to adjust based on your plans.
+                </p>
+            </div>
+        </div>
+
+        <!-- VENUE -->
+        <div class="info-section">
+            <p class="section-label">Accommodation Venue</p>
+            <div class="venue-card">
+                <div class="venue-icon-wrap">🏨</div>
+                <div>
+                    <h3>WaterField Hotel</h3>
+                    <p class="venue-address">Akobo, Ibadan</p>
+                    <p class="venue-note">The hotel has a wide range of rooms (over 30 available), from standard rooms to suites.</p>
+                </div>
+            </div>
+            <!-- REPLACE: drop in a wide photo of the hotel exterior -->
+            <div class="photo-placeholder wide">
+                <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <rect x="3" y="5" width="18" height="14" rx="2"/>
+                    <circle cx="9" cy="10" r="2"/>
+                    <path d="M3 17l5-5 4 4 3-3 6 4"/>
+                </svg>
+                <span class="ph-label">Hotel Exterior Photo</span>
+                <span class="ph-filename">images/hotel-exterior.jpg</span>
+            </div>
+        </div>
+
+        <!-- ROOM OPTIONS -->
+        <div class="info-section">
+            <p class="section-label">Room Options & Rates (Per Night)</p>
+            <div class="rooms-grid">
+                <div class="room-row">
+                    <span class="room-type">Single</span>
+                    <span class="room-price">₦40,400</span>
+                </div>
+                <div class="room-row">
+                    <span class="room-type">Single Luxury</span>
+                    <span class="room-price">₦47,000</span>
+                </div>
+                <div class="room-row">
+                    <span class="room-type">Executive</span>
+                    <span class="room-price">₦55,400</span>
+                </div>
+                <div class="room-row">
+                    <span class="room-type">Business Executive</span>
+                    <span class="room-price">₦62,600</span>
+                </div>
+                <div class="room-row">
+                    <span class="room-type">Mini Suite</span>
+                    <span class="room-price">₦69,800</span>
+                </div>
+                <div class="room-row">
+                    <span class="room-type">Suite</span>
+                    <span class="room-price">₦98,800</span>
+                </div>
+            </div>
+            <p class="sharing-note">👯 Sharing options are available to help reduce costs — indicate this in the form below.</p>
+        </div>
+
+        <!-- BOOKING PROCESS -->
+        <div class="info-section">
+            <p class="section-label">Booking Process</p>
+            <div class="steps-list">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <p>Choose your preferred room type from the price list above.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <p>Make payment using the bank details below.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <p>Fill the booking form below to confirm your room type, number of nights, and share your payment details.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <p>Your room will be confirmed once payment is verified. Rooms are allocated on a first-come, first-served basis.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAYMENT -->
+        <div class="info-section">
+            <p class="section-label">Payment Details</p>
+            <div class="payment-card">
+                <h3>Please make payment to:</h3>
+                <div class="payment-details">
+                    <div class="payment-row">
+                        <span class="p-label">Account Name</span>
+                        <span class="p-value">Joel Esiebo</span>
+                    </div>
+                    <div class="payment-row">
+                        <span class="p-label">Account Number</span>
+                        <span class="p-value account-num">0121364354</span>
+                    </div>
+                    <div class="payment-row">
+                        <span class="p-label">Bank</span>
+                        <span class="p-value">Sterling Bank</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOOKING FORM -->
+        <div class="info-section">
+            <p class="section-label">Booking Form</p>
+            <div class="form-section">
+                <div class="form-section-header">
+                    <h3>Complete Your Booking</h3>
+                    <p>Please fill this out after making payment — this confirms your reservation.</p>
+                </div>
+                <iframe
+                    class="form-embed"
+                    src="https://docs.google.com/forms/d/1Ni7_uu36GNpzmx33CS3euK5nJayHnfaPpnol-knsUzg/viewform?embedded=true"
+                    title="Accommodation Booking Form"
+                    loading="lazy">
+                    Loading form…
+                </iframe>
+            </div>
+        </div>
+
+        <!-- IMPORTANT NOTE -->
+        <div class="info-section">
+            <p class="section-label">Important Note</p>
+            <div class="warning-card">
+                <h3>⚠️ Please read carefully</h3>
+                <ul>
+                    <li>Rooms have not been pre-booked at this time.</li>
+                    <li>Accommodation will be secured based on confirmed payments only.</li>
+                    <li>Filling the form alone does <strong>not</strong> reserve a room — only completed payment guarantees your booking.</li>
+                    <li>Rooms are allocated on a first-come, first-served basis after payment is received.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- EARLY ARRIVALS -->
+        <div class="info-section">
+            <p class="section-label">Early Arrivals (Optional)</p>
+            <div class="deadline-banner">
+                <span class="deadline-icon">🏡</span>
+                <p>For guests arriving earlier in the week, Airbnb options can be arranged before moving into the hotel for the main wedding days.</p>
+            </div>
+        </div>
+
+        <!-- DEADLINE -->
+        <div class="info-section">
+            <p class="section-label">Booking Deadline</p>
+            <div class="deadline-banner">
+                <span class="deadline-icon">📅</span>
+                <p>Kindly complete your booking and payment by <strong>June 30th, 2026</strong>.</p>
+            </div>
+        </div>
+
+        <!-- NOTE FROM COUPLE -->
+        <div class="info-section">
+            <div class="couple-note">
+                <div class="divider-leaf">🤍</div>
+                <blockquote>
+                    We're really looking forward to having everyone together in one place — it means more time to connect, celebrate, and enjoy the moment as a family. Thank you so much for being part of this with us.
+                </blockquote>
+                <p class="signed">With all our love,<br><em>Bami & Joel</em></p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Made with 💚 for <span>Bami & Joel</span> — #BamiAndJoelForever · <a href="https://twitter.com/geektutor">Built by Geektutor</a></p>
+    </footer>
+
+</body>
+</html>
